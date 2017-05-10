@@ -18,7 +18,7 @@ class Funeral(models.Model):
     Class to describe a funeral.
     Funerals must be linked to a user
     """
-    #deceased = models.ForeignKey(User, 'The User whose funeral is being planned')
+    # deceased = models.ForeignKey(User, 'The User whose funeral is being planned')
     date = models.DateField('Date of the Funeral')
     type = models.TextField('Type of Burial')
     location = models.TextField('Location')
