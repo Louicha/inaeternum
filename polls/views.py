@@ -7,6 +7,6 @@ from inaeternum.settings import BASE_DIR
 
 
 def index(request):
-    return render(request, os.path.join('static', 'StartInformation.html'))
+    return render(request, os.path.join('polls', 'static', 'StartInformation.html'))
     # return render(request, '../code/StartInformation.html', {})
     # return HttpResponse('Hello World')
