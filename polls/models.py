@@ -1,16 +1,5 @@
 from django.db import models
-
-
-class User(models.Model):
-    """
-    Class to describe a user.
-    """
-    # TODO: hashed passwords https://docs.djangoproject.com/en/1.11/ref/contrib/auth/
-    first_name = models.TextField('First Name')
-    last_name = models.TextField('Last Name')
-    email = models.EmailField('Email Address')
-    date_of_birth = models.DateField('Date of Birth')
-
+from django.contrib.auth.models import User
 
 class Funeral(models.Model):
     """

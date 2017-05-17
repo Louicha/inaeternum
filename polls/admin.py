@@ -1,6 +1,5 @@
 from django.contrib import admin
 
-from .models import Funeral, User
+from .models import Funeral
 
 admin.site.register(Funeral)
-admin.site.register(User)
