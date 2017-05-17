@@ -14,8 +14,9 @@ def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
+            # TODO: insert into database
             return HttpResponseRedirect('Registration successful')
-    # if a GET (or any other method), we'll create a blank form
+    # if GET (or any other method), we'll create a blank form
     else:
         form = RegisterForm()
     return render(request, 'register.html', {'form': form})

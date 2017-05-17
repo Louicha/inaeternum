@@ -1,7 +1,7 @@
 from django import forms
 
 
-class RegisterForm(forms.form):
+class RegisterForm(forms.Form):
     first_name = forms.CharField(label='First Name')
     last_name = forms.CharField(label='Last Name')
     email = forms.EmailField(label='Your Email Address')
