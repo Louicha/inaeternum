@@ -19,4 +19,4 @@ def register(request):
     # if GET (or any other method), we'll create a blank form
     else:
         form = RegisterForm()
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'registration/register.html', {'form': form})

@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib import auth  # for the password/authentication system
 
 
 class User(models.Model):

@@ -16,9 +16,15 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from polls import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^polls/', include('polls.urls')),
     url(r'^register/', views.register, name='register'),
+    url(r'^login/$', auth_views.LoginView.as_view(), name='login'),
+    url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
+
+    url(r'^password_change/$', auth_views.PasswordChangeView.as_view(), name='password_change'),
+    url(r'^password_change/done/$', auth_views.PasswordChangeDoneView.as_view(), name='password_change_done'),
 ]
