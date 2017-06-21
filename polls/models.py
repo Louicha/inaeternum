@@ -7,7 +7,7 @@ class Funeral(models.Model):
     Class to describe a funeral.
     Funerals must be linked to a user
     """
-    # deceased = models.ForeignKey(User, 'The User whose funeral is being planned')
+    deceased = models.OneToOneField(User)
     date = models.DateField('Date of the Funeral')
     type = models.TextField('Type of Burial')
     location = models.TextField('Location')
@@ -16,6 +16,9 @@ class Funeral(models.Model):
     additional_comments = models.TextField('Additional Comments')
 
 
-class Optionals(models.Model):
+class UserProfile(models.Model):
     cheer = models.TextField('Words of Cheer')
-    guest_list = models.TextField('Guest List (json)')
+    guest_list = models.TextField('Guest List')
+    user = models.OneToOneField(User)
+
+User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])

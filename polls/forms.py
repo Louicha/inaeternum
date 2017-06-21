@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-
+from .models import UserProfile
 
 class RegisterForm(UserCreationForm):
     first_name = forms.CharField(label='First Name')
@@ -9,6 +9,8 @@ class RegisterForm(UserCreationForm):
     date_of_birth = forms.DateField(label='Date of Birth')
 
 
-class ProfileSettingsForm(forms):
-    guest_list = forms.CharField(label='Guest List (one per line)')
-    words_of_cheer = forms.CharField(label='Words of Cheer')
+class ProfileSettingsForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['cheer', 'guest_list']
+

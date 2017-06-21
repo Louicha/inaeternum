@@ -1,4 +1,6 @@
 import os
+
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, HttpResponse
 # from inaeternum.settings import BASE_DIR
@@ -22,11 +24,10 @@ def register(request):
     return render(request, 'registration/register.html', {'form': form})
 
 
+@login_required
 def settings(request):
-    if request.user.is_authenticated():
-        # show settings form, maybe fill with current data?
-        # also, this doesn't actually do anything (yet)
-        form = ProfileSettingsForm()
-        return render(request, {'form': form})
-    else:
-        return HttpResponseRedirect("/login/")
+    user_profile = request.user.profile
+    cheer = user_profile.cheer
+    guest_list = user_profile.guest_list
+    form = ProfileSettingsForm(instance=request.user)
+    return render(request, {'form': form})
