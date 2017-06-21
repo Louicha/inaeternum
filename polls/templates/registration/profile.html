@@ -1,8 +1,18 @@
 <body>
 <h1>Change your profile settings here</h1><br>
+<p>
+    <h3>Old words of cheer</h3>
+    <br>
+    {{ words_of_cheer }}
+</p>
+<p>
+    <h3>Old guest list</h3>
+    <br>
+    {{ guest_list }}
+</p>
 <link type="text/css" rel="stylesheet" href="../../static/style.css">
 <form action='/accounts/profile/' method='post'>{% csrf_token %}
-{{ form.as_p }}
-<input type='submit' value='Submit' />
+    {{ form.as_p }}
+    <input type='submit' value='Submit'/>
 </form>
 </body>

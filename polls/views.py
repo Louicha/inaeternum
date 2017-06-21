@@ -7,9 +7,9 @@ from django.shortcuts import render, HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from .forms import ProfileSettingsForm
 
+
 def index(request):
     return render(request, os.path.join('polls', 'static', 'StartInformation.html'))
-
 
 def register(request):
     # form data is send to the server
@@ -34,4 +34,11 @@ def settings(request):
     else:
         user_profile = request.user.profile
         form = ProfileSettingsForm(instance=user_profile)
-        return render(request, 'registration/profile.html', {'form': form})
+        words_of_cheer = user_profile.cheer
+        guest_list = user_profile.guest_list
+        context = {
+            'words_of_cheer': words_of_cheer,
+            'guest_list': guest_list,
+            'form': form
+        }
+        return render(request, 'registration/profile.html', context)
