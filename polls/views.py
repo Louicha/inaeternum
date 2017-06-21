@@ -6,10 +6,13 @@ from django.shortcuts import render, HttpResponse
 # from inaeternum.settings import BASE_DIR
 from django.contrib.auth.forms import UserCreationForm
 from .forms import ProfileSettingsForm
+from django.views.generic.edit import UpdateView
+from polls.models import UserProfile
 
 
 def index(request):
     return render(request, os.path.join('polls', 'static', 'StartInformation.html'))
+
 
 def register(request):
     # form data is send to the server
@@ -24,6 +27,16 @@ def register(request):
     return render(request, 'registration/register.html', {'form': form})
 
 
+class settings(UpdateView):
+    template_name = 'registration/profile.html'
+    model = UserProfile
+    fields = ['cheer', 'guest_list']
+    success_url = '/accounts/profile/'
+
+    def get_object(self, qs=None):
+        return UserProfile.objects.for_user(self.request.user)
+
+"""
 @login_required
 def settings(request):
     if request.method == 'POST':
@@ -42,3 +55,4 @@ def settings(request):
             'form': form
         }
         return render(request, 'registration/profile.html', context)
+"""
