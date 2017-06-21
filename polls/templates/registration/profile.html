@@ -1,0 +1,8 @@
+<body>
+<h1>Change your profile settings here</h1><br>
+<link type="text/css" rel="stylesheet" href="../../static/style.css">
+<form action='/accounts/profile/' method='post'>{% csrf_token %}
+{{ form.as_p }}
+<input type='submit' value='Submit' />
+</form>
+</body>

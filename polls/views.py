@@ -26,8 +26,12 @@ def register(request):
 
 @login_required
 def settings(request):
-    user_profile = request.user.profile
-    cheer = user_profile.cheer
-    guest_list = user_profile.guest_list
-    form = ProfileSettingsForm(instance=request.user)
-    return render(request, {'form': form})
+    if request.method == 'POST':
+        form = ProfileSettingsForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return HttpResponseRedirect('/accounts/profile/')
+    else:
+        user_profile = request.user.profile
+        form = ProfileSettingsForm(instance=user_profile)
+        return render(request, 'registration/profile.html', {'form': form})
