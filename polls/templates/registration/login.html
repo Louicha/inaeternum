@@ -1,17 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{% load i18n %}
 
-<h1>{% trans "Sign-in" %}</h1>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">{% trans "Login" %}</button>
-</form>
+<head>
+    <title>In aeternum</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../static/w3.css">
+    <style>
+        form {
+            font-family: sans-serif;
+        }
+        li {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="page-header">
+        <img src="../static/logo.png" alt="in aeternum" />
+
+
+        <nav id="navbereich">
+            <ul>
+                <li id="navi01"><a href="/">Home</a></li>
+                <li id="navi02"><a href="/login">Login</a></li>
+                <li id="navi03"><a href="https://inaeternumblog.wordpress.com/">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% load i18n %}
+
+    <h1 style="font-family:fantasy;">{% trans "Sign-in" %}</h1>
+
+    <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button class="w3-btn w3-light-green w3-hover-pastell-green w3-round" type="submit">{% trans "Login" %}</button>
+    </form>
+    <footer class="site-footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="https://github.com/Louicha/inaeternum"> Github repository </a>
+
+        <font size=”1″>Header courtesy of </font>
+        <a title=”Get your free header NOW!” href=”http://www.freewebheaders.com”>
+            <font size=”1″>Free Web Headers
+            </font>
+        </a>
+        <!-- the fuck is this? <font> in 2k17? I aren't think that LUL -->
+
+    </footer>
 </body>
+
 </html>

@@ -1,6 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>In aeternum</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../static/w3.css">
+    <style>
+        body {
+            margin: 0;
+        }
+        li {
+            padding: 10px;
+        }
+        
+    </style>
+</head>
+
 <body>
-<h1>Change your profile settings here</h1><br>
-<!--
+    <header class="page-header">
+        <img src="../../static/logo.png" alt="in aeternum" />
+
+
+        <nav id="navbereich">
+            <ul>
+                <li id="navi01"><a href="/">Home</a></li>
+                <li id="navi02"><a href="../profile">Words of Cheer / Guest List</a></li>
+                <li id="navi03"><a href="../profile2">General Information</a></li>
+                <li id="navi04"><a href="https://inaeternumblog.wordpress.com/">Blog</a></li>
+                <li id="navi05"><a href="/password_change">Change password</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Change your profile settings here</h1><br>
+    <!--
 <p>
     <h3>Old words of cheer</h3>
     <br>
@@ -12,9 +45,22 @@
     {{ guest_list }}
 </p>
 -->
-<link type="text/css" rel="stylesheet" href="../../static/style.css">
-<form action='/accounts/profile/' method='post'>{% csrf_token %}
-    {{ form.as_p }}
-    <input type='submit' value='Submit'/>
-</form>
+    <link type="text/css" rel="stylesheet" href="../../static/style.css">
+    <form action='/accounts/profile/' method='post'>{% csrf_token %} {{ form.as_p }}
+        <input type='submit' value='Submit' />
+    </form>
+    <footer class="site-footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="https://github.com/Louicha/inaeternum"> Github repository </a>
+
+        <font size=”1″>Header courtesy of </font>
+        <a title=”Get your free header NOW!” href=”http://www.freewebheaders.com”>
+            <font size=”1″>Free Web Headers
+            </font>
+        </a>
+        <!-- the fuck is this? <font> in 2k17? I aren't think that LUL -->
+
+    </footer>
 </body>
+
+</html>
