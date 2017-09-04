@@ -23,3 +23,6 @@ Quit the server with CONTROL-C.`
 
 
 More information at https://docs.djangoproject.com/en/1.11/intro/tutorial01/
+-------------------------------------------------------------------
+Our blog: https://inaeternumblog.wordpress.com/
+Our final post : https://inaeternumblog.wordpress.com/2017/06/29/final-post-time-to-say-goodbye/
